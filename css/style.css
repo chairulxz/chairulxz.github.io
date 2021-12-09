@@ -1,0 +1,228 @@
+ v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* font */
+
+@font-face{
+	font-family: "bebasneue";
+	src:url(../font/bebasneue-regular-webfont.woff) format("woff");
+}
+
+
+/* style utama */
+
+body{
+	font: 18px/36px "bebasneue","arial narrow", arial ,sans-serif;
+	background: url(../img/bg.png) lightblue;
+}
+h1{
+	font-size: 80px;
+	text-align: center;
+	margin: 50px 0;
+	text-shadow: 3px 3px 2px white;
+	color: orange;
+}
+.container{
+	width: 740px;
+	background-color: white;
+	margin: auto;
+	padding:10px;
+	box-shadow: 0 0 3px 3px rgba(0,0,0,.2);
+	border-radius: 10px;
+	background-color: rgb(56,105,64);
+}
+.gallery li{
+	width: 120px;
+	height: 120px;
+	border:5px solid grey;
+	position: relative;
+	float: left;
+	margin-right: 28px;
+	margin-left: -19px;
+}
+.gallery li span {
+	display:block;
+	width: 120px;
+	height: 120px;
+	background-color: rgba(200,200,200,.5);
+	top: 0;
+	text-align: center;
+	line-height: 120px;
+	position: absolute;
+	color: #333;
+	text-shadow: 1px 1px 1px #ddd;
+	transition:.3s;
+	transform: scale(0) rotate(0);
+}
+.gallery li a:hover span{
+	opacity: 10;
+	transform: scale(1) rotate(360deg);
+}
+.gallery li,
+.gallery li img,
+.gallery li span{
+	border-radius: 50%;
+}
+/* overlay */
+.overlay{
+	position: fixed;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0);
+	z-index: 999;
+	transition: .5s;
+	text-align: center;
+	padding: 100px 0;
+}
+.overlay:target {
+	width: auto;
+	height: auto;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(0,0,0,.8); 
+
+}
+.overlay img{
+	max-height: 100%;
+	box-shadow: 5px 5px 5px 5px rgba(0,0,0,.7);
+}
+
+.overlay:target img{
+	animation: fade 1s;
+}
+
+.overlay .close{
+	position: absolute;
+	top: 50px;
+	left: 50%;
+	margin-left: -20px;
+	color: white;
+	text-decoration: none;
+	background-color: black;
+	line-height: 10px;
+	border:1px solid white;
+	padding: 5px;
+	opacity: 0;  
+}
+.overlay:target .close{
+	animation: SlideAndDown .5s .5s forwards;
+}
+.overlay:target .next,
+.overlay:target .preview {
+	animation: fade .5s .5s forwards;
+}
+/* navigasi */
+.next{
+	width: 57px;
+	height: 83px;
+	background-image: url(../img/next.png);
+	position: absolute;
+	text-indent: -999999999999999px;
+	top: 40%;
+	margin-left: 50px;
+	opacity: 0;
+}
+.preview{
+	width: 57px;
+	height: 83px;
+	background-image: url(../img/preview.png);
+	position: absolute;
+	text-indent: -999999999999999px;
+	top: 40%;
+	margin-left: -105px;
+	opacity: 0;
+}
+
+/* animation */
+@keyframes fade{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
+ @keyframes ZoomDanFade {
+ 	0%{
+ 		transform: scale(0);
+ 		opacity: 0;
+ 	}
+ 	100%{
+ 		transform: scale(1);
+ 		opacity: 1;
+ 	}
+ }
+ @keyframes SlideAndDown {
+ 	0%{
+ 		opacity: 0;
+ 		margin-top: -20px;
+
+ 	}
+ 	100%{
+ 		opacity: 1;
+ 		margin-top: 0;
+ 	}
+ }
+
+
+
+
+/* clear */
+.clear{
+	clear: both;
+}
+
+
+
+
+
+
